@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<form action="/calculator" method="post">
+    <fieldset>
+        <legend>Calculator</legend>
+        <table>
+            <tr>
+                <td>First operand: </td>
+                <td><input type="text" name="number1"></td>
+            </tr>
+            <tr>
+                <td>Operand: </td>
+                <td>
+                    <select name="operator">
+                        <option value="+" name="calculator">Addition</option>
+                        <option value="-" name="calculator">Subtraction</option>
+                        <option value="*" name="calculator">Multiplication</option>
+                        <option value="/" name="calculator">Division</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Second operand: </td>
+                <td><input type="text" name="number2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Calculate">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <div th:if="${message} == null">
+    <h1>Result :</h1>
+    <h1 th:text="${result}"></h1>
+    </div>
+
+    <div th:if="${message} != null">
+        <h1>Result :</h1>
+        <h1 th:text="${message}"></h1>
+    </div>
+</form>
+</body>
+</html>
